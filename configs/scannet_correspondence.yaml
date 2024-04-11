@@ -1,0 +1,7 @@
+random_seed: 8
+scale_factor: 0.25
+num_corr: 1000
+multilayer: False
+defaults:
+  - backbone: dinov2_b14
+  - _self_

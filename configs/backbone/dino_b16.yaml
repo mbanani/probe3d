@@ -1,0 +1,5 @@
+_target_: evals.models.dino.DINO
+dino_name: dino
+model_name: vitb16
+output: dense-cls
+layer: -1

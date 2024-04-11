@@ -1,0 +1,5 @@
+_target_: evals.models.clip.CLIP
+arch: "ViT-L-14-336"
+checkpoint: "openai"
+output: dense
+layer: -1

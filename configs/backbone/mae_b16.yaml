@@ -1,0 +1,4 @@
+_target_: evals.models.mae.MAE
+checkpoint: "facebook/vit-mae-base"
+output: dense
+layer: -1

@@ -1,0 +1,4 @@
+_target_: evals.models.midas_final.make_beit_backbone
+output: dense
+layer: -1
+midas: True

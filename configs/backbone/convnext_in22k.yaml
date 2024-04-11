@@ -1,0 +1,5 @@
+_target_: evals.models.convnext.ConvNext
+arch: "convnext_base"
+checkpoint: "in22k"
+output: dense
+layer: -1

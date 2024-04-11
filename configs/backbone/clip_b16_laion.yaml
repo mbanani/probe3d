@@ -1,0 +1,5 @@
+_target_: evals.models.clip.CLIP
+arch: "ViT-B-16"
+checkpoint: "laion2b_s34b_b88k"
+output: dense
+layer: -1

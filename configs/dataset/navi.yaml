@@ -1,0 +1,5 @@
+_target_: evals.datasets.navi.NAVI
+path: data/navi_v1
+image_mean: imagenet
+augment_train: True
+bbox_crop: True

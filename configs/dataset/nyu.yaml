@@ -1,0 +1,6 @@
+_target_: evals.datasets.nyu.NYU
+train_path: data/nyuv2_geonet
+test_path: data/nyuv2/nyuv2_snorm_all.pkl
+image_mean: imagenet
+augment_train: True
+center_crop: True

@@ -1,0 +1,31 @@
+kp_id ,aeroplane,bicycle,bird,boat,bottle,bus,car,cat,chair,cow,dog,horse,motorbike,person,pottedplant,sheep,train,tvmonitor 
+0,nose,front wheel,crown,front deck,right cap,right mirror,right mirror,right ear,right front-seat,right ear,right ear,right ear,right mirror,right eye,right rim,right ear,top-left front,top-right frame-corner
+1,windshield,back wheel,right wing,front-right deck,left cap,left mirror,left mirror,left ear,left front-seat,left ear,left ear,left ear,left mirror,left eye,back rim,left ear,top-right front,frame-top
+2,cockpit,right handlebar,left wing,front-left deck,right neck,right headlight,right headlight,right ear-tip,bottom-right back,right ear-tip,right ear-tip,right ear-tip,right handlebar,right ear,left rim,right ear-tip,bottom-left front,top-left frame-corner
+3,front wheel,left handlebar ,beak,mid-right deck,left neck ,left headlight,left headlight,left ear-tip,bottom-left back,left ear-tip,left ear-tip,left ear-tip,left handlebar ,left ear,front rim,left ear-tip,bottom-right front,left frame-side
+4,right wheel,middle handlebar,right cheek,mid-left deck ,top-right body,front license-plate,front license-plate,right eye,front-right leg,right eye,right eye,right eye,front light,nose,right body,right eye,top-left back,bottom-left frame-corner
+5,left wheel,front seat,left cheek ,back-right deck,top-left body,right tail-light,front emblem,left eye,front-left leg,left eye,left eye,left eye,back light,chin,left body,left eye,top-right back,frame-base
+6,right engine-fan,back-right seat,forehead ,back-left deck,right-center body,left tail-light,right tail-light,right nostril,back-right leg,right nostril,nose ,right nostril,front wheel,nape,right base,right nostril,bottom-left back,bottom-right frame-corner
+7,left engine-fan,back-left seat,right eye,front-right hull,left-center body,back license-plate,left tail-light,left nostril,back-left leg,left nostril,forehead,left nostril,back wheel,mouth,middle base,left nostril,bottom-right back,right frame-side
+8,right wing-tip,seat-post,left eye,front-left hull,right-bottom body,N/A,back license-plate,mouth,top-right back,mouth,mouth,mouth,license-plate,right shoulder,left base,mouth,top-left windshield ,top-right screen-corner
+9,left wing-tip,right pedal,nape,mid-right hull,left-bottom body,N/A,back emblem,front-right foot,top-left back,front-right foot,front-right foot,forehead,tail ,left shoulder,,front-right foot,top-right windshield,screen-top
+10,right engine,left pedal ,right foot,mid-left hull ,,back-right wheel-back-liner,back-right wheel-back-liner,front-left foot,right armrest,front-left foot,front-left foot,front-right foot,exhaustpipe,right elbow,,front-left foot,bottom-left windshield ,top-left screen-corner
+11,left engine ,N/A,left foot,back-right hull,,back-right wheel,back-right wheel,back-right foot,left armrest,back-right foot,back-right foot,front-left foot,front wheelhub,left elbow,,back-right foot,bottom-right windshield ,left screen-side
+12,right wing-front,N/A,right knee,back-left hull,,back-right wheel-front-liner,back-right wheel-front-liner,back-left foot,right elbowrest,back-left foot,back-left foot,back-right foot,back wheelhub ,right hand,,back-left foot,top-left windshield-center,bottom-left screen-corner
+13,left wing-front,chainring ,left knee,front hull,,front-right wheel-back-liner,front-right wheel-back-liner,tail-tip,left elbowrest,tail-tip,tail-tip,back-left foot,,left hand,,tail-tip,top-right windshield-center,screen-base
+14,right wing-back,,right hip,,,front-right wheel,front-right wheel,tail-base,,tail-base,tail-base,tail-tip,,right knee,,tail-base,bottom-left windshield-center,bottom-right screen-corner
+15,left wing-back,,left hip,,,front-right wheel-front-liner,front-right wheel-front-liner,,,front-right knee,nape,tail-base,,left knee,,front-right knee,bottom-right windshield-center,right screen-side
+16,right stabilizer-tip,,tail,,,bottom-right bus-front,bottom-right front-windshield,,,front-left knee,,front-right knee,,right ankle,,front-left knee,left headlight,
+17,left stabilizer-tip,,,,,bottom-left bus-front,bottom-left front-windshield,,,back-right knee,,front-left knee,,left ankle,,back-right knee,right headlight,
+18,right stabilizer-front,,,,,top-right bus-front,top-right front-windshield,,,back-left knee,,back-right knee,,right foot,,back-left knee,,
+19,left stabilizer-front,,,,,top-left bus-front,top-left front-windshield,,,right horn,,back-left knee,,left foot,,right horn,,
+20,right stabilizer-back,,,,,back-left wheel-back-liner,back-left wheel-back-liner,,,left horn,,,,,,left horn,,
+21,left stabilizer-back,,,,,back-left wheel,back-left wheel,,,,,,,,,,,
+22,vertical stabilizer-tip,,,,,back-left wheel-front-liner,back-left wheel-front-liner,,,,,,,,,,,
+23,vertical stabilizer-front,,,,,front-left wheel-back-liner,front-left wheel-back-liner,,,,,,,,,,,
+24,vertical stabilizer-back,,,,,front-left wheel,front-left wheel,,,,,,,,,,,
+25,,,,,,front-left wheel-front-liner,front-left wheel-front-liner,,,,,,,,,,,
+26,,,,,,bus-back bottom-right,bottom-right back-windshield,,,,,,,,,,,
+27,,,,,,bus-back bottom-left,bottom-left back-windshield,,,,,,,,,,,
+28,,,,,,bus-back top-right,top-right back-windshield,,,,,,,,,,,
+29,,,,,,bus-back top-left,top-left back-windshield,,,,,,,,,,,

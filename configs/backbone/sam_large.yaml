@@ -1,0 +1,4 @@
+_target_: evals.models.sam.SAM
+arch: vit_l
+output: dense
+layer: -1

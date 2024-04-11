@@ -1,0 +1,4 @@
+probe_lr: 0.0005
+model_lr: 0.0
+n_epochs: 10
+warmup_epochs: 1.5

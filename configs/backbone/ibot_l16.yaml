@@ -1,0 +1,4 @@
+_target_: evals.models.ibot.iBOT
+model_type: large
+output: dense
+layer: -1

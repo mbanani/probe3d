@@ -1,0 +1,12 @@
+system:
+  random_seed: 8
+  num_gpus: 1
+  port: 12355
+note: ""
+batch_size: 8
+defaults:
+  - optimizer: ten_epoch
+  - backbone: dinov2_b14
+  - dataset: nyu
+  - probe: depth_dpt
+  - _self_

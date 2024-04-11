@@ -1,0 +1,5 @@
+_target_: evals.models.deit.DeIT
+model_size: large
+img_size: 384
+output: dense
+layer: -1

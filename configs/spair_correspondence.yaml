@@ -1,0 +1,12 @@
+random_seed: 8
+split: test
+image_size: 800
+eval_class: all
+num_instances: 200 
+image_mean: imagenet
+use_bbox: False
+multilayer: False
+note: ""
+defaults:
+  - backbone: dinov2_b14
+  - _self_

@@ -1,0 +1,4 @@
+_target_: evals.models.siglip.SigLIP
+checkpoint: "vit_large_patch16_siglip_384"
+output: dense
+layer: -1
