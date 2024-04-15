@@ -2,7 +2,7 @@ Probing the 3D Awareness of Visual Foundation Models
 =====================================================
 
 This repository contains a re-implementation of the code for the paper [Probing the 3D Awareness of
-Visual Foundation Models]() (CVPR 2024) which presents an analysis of the 3D awareness of visual
+Visual Foundation Models](https://arxiv.org/abs/2404.08636) (CVPR 2024) which presents an analysis of the 3D awareness of visual
 foundation models.
 
 
