@@ -53,7 +53,7 @@ The NYU dataset is one of the standard depth estimation benchmarks.  Furthermore
 First, we download and extract the training set from GeoNet
 ```bash
 cd data
-# Download data1.zip and data.zip following https://github.com/aayushbansal/MarrRevisited
+# Download data1.zip and data.zip following https://github.com/xjqi/GeoNet
 # the files are separated for simpler download, but contain two parts of the dataset
 unzip data1.zip
 unzip data2.zip
