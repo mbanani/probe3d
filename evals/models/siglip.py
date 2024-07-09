@@ -68,11 +68,6 @@ class SigLIP(torch.nn.Module):
         x = self.vit.patch_drop(x)
         x = self.vit.norm_pre(x)
 
-        for i, blk in enumerate(self.vit.blocks):
-            x = blk(x)
-            if i == self.layer:
-                break
-
         embeds = []
         for i, blk in enumerate(self.vit.blocks):
             x = blk(x)
