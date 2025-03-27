@@ -240,7 +240,59 @@ class Linear(nn.Module):
         feats = interpolate(feats, scale_factor=4, mode="bilinear")
         return self.conv(feats)
 
+   
+class ReadoutHead(nn.Module):
+    def __init__(self, input_channels, hidden_dim_1=128, hidden_dim_2=32, kernel_size = 3, output_channels=1, scale_invariant = False):
+        super(ReadoutHead, self).__init__()
+        self.scale_invariant = scale_invariant
+        # Define the convolutional layers
+        self.conv1 = nn.Conv2d(input_channels, hidden_dim_1, kernel_size=kernel_size, padding=1)
+        self.silu = nn.SiLU()
+        self.conv2 = nn.Conv2d(hidden_dim_1, hidden_dim_2, kernel_size=kernel_size, padding=1)
+        self.conv3 = nn.Conv2d(hidden_dim_2, output_channels, kernel_size=1)
+        self.tanh = nn.Tanh()
+        self.sigmoid = nn.Sigmoid()
 
+    def forward(self, x):
+        x = self.silu(self.conv1(x))
+        x = self.silu(self.conv2(x))
+
+        if not self.scale_invariant: 
+            print("not scale invariant")
+            x = self.conv3(x)
+        else: 
+            print('scale invariant')
+            # x = self.tanh(self.conv3(x))
+            # x = self.tanh(self.conv3(x))
+            x = self.sigmoid(self.conv3(x))
+
+        return x
+
+class ReadoutHeadDimReducer(nn.Module):
+    def __init__(self, input_channels, hidden_dim_1=128, hidden_dim_2=32, kernel_size = 3, output_channels=1, scale_invariant = False):
+        super(ReadoutHead, self).__init__()
+        self.scale_invariant = scale_invariant
+        # Define the convolutional layers
+        self.conva = nn.Conv2d(input_channels, hidden_dim_1*6, kernel_size=1, padding=1)
+        self.convb = nn.Conv2d(hidden_dim_1*6, hidden_dim_1*4, kernel_size=1, padding=1)
+        self.convc = nn.Conv2d(hidden_dim_1*4, hidden_dim_1*2, kernel_size=1, padding=1)
+        self.conv1 = nn.Conv2d(hidden_dim_1*2, hidden_dim_1, kernel_size=kernel_size, padding=1)
+        self.silu = nn.SiLU()
+        self.conv2 = nn.Conv2d(hidden_dim_1, hidden_dim_2, kernel_size=kernel_size, padding=1)
+        self.conv3 = nn.Conv2d(hidden_dim_2, output_channels, kernel_size=1)
+        self.tanh = nn.Tanh()
+
+    def forward(self, x):
+        x = self.silu(self.conv1(x))
+        x = self.silu(self.conv2(x))
+        if not self.scale_invariant: 
+            print("not scale invariant")
+            x = self.conv3(x)
+        else: 
+            print('scale invariant')
+            x = self.tanh(self.conv3(x))
+        return x
+    
 class MultiscaleHead(nn.Module):
     def __init__(self, input_dims, output_dim, hidden_dim=512, kernel_size=1):
         super().__init__()

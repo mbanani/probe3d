@@ -1,0 +1,3 @@
+[submodule "diffusion-forcing-transformer"]
+	path = diffusion-forcing-transformer
+	url = https://github.com/kwsong0113/diffusion-forcing-transformer
