@@ -97,10 +97,10 @@ def gradient_loss(depth_pr, depth_gt, eps=0.001):
         eps (float): to avoid exploding gradient
     """
     depth_pr_downscaled = [depth_pr] + [
-        depth_pr[:: 2 * i, :: 2 * i] for i in range(1, 4)
+        depth_pr[..., :: 2 * i, :: 2 * i] for i in range(1, 4)
     ]
     depth_gt_downscaled = [depth_gt] + [
-        depth_gt[:: 2 * i, :: 2 * i] for i in range(1, 4)
+        depth_gt[..., :: 2 * i, :: 2 * i] for i in range(1, 4)
     ]
 
     gradient_loss = 0
@@ -116,12 +116,12 @@ def gradient_loss(depth_pr, depth_gt, eps=0.001):
 
         log_d_diff = torch.mul(log_d_diff, valid)
 
-        v_gradient = torch.abs(log_d_diff[0:-2, :] - log_d_diff[2:, :])
-        v_valid = torch.mul(valid[0:-2, :], valid[2:, :])
+        v_gradient = torch.abs(log_d_diff[..., 0:-2, :] - log_d_diff[..., 2:, :])
+        v_valid = torch.mul(valid[..., 0:-2, :], valid[..., 2:, :])
         v_gradient = torch.mul(v_gradient, v_valid)
 
-        h_gradient = torch.abs(log_d_diff[:, 0:-2] - log_d_diff[:, 2:])
-        h_valid = torch.mul(valid[:, 0:-2], valid[:, 2:])
+        h_gradient = torch.abs(log_d_diff[..., :, 0:-2] - log_d_diff[..., :, 2:])
+        h_valid = torch.mul(valid[..., :, 0:-2], valid[..., :, 2:])
         h_gradient = torch.mul(h_gradient, h_valid)
 
         gradient_loss += (torch.sum(h_gradient) + torch.sum(v_gradient)) / N
