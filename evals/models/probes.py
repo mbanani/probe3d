@@ -195,16 +195,19 @@ class DPT(nn.Module):
         feats[2] = self.conv_2(feats[2])
         feats[3] = self.conv_3(feats[3])
 
-        feats = [interpolate(x, scale_factor=2) for x in feats]
+        feats = [
+            interpolate(x, scale_factor=2, mode="bilinear", align_corners=True)
+            for x in feats
+        ]
 
         out = self.ref_3(feats[3], None)
         out = self.ref_2(feats[2], out)
         out = self.ref_1(feats[1], out)
         out = self.ref_0(feats[0], out)
 
-        out = interpolate(out, scale_factor=4)
+        out = interpolate(out, scale_factor=4, mode="bilinear", align_corners=True)
         out = self.out_conv(out)
-        out = interpolate(out, scale_factor=2)
+        out = interpolate(out, scale_factor=2, mode="bilinear", align_corners=True)
         return out
 
 
@@ -237,7 +240,7 @@ class Linear(nn.Module):
         if type(feats) is list:
             feats = torch.cat(feats, dim=1)
 
-        feats = interpolate(feats, scale_factor=4, mode="bilinear")
+        feats = interpolate(feats, scale_factor=4, mode="bilinear", align_corners=True)
         return self.conv(feats)
 
 
@@ -257,11 +260,14 @@ class MultiscaleHead(nn.Module):
         feats = [self.convs[i](feats[i]) for i in range(num_feats)]
 
         h, w = feats[-1].shape[-2:]
-        feats = [interpolate(feat, (h, w), mode="bilinear") for feat in feats]
+        feats = [
+            interpolate(feat, (h, w), mode="bilinear", align_corners=True)
+            for feat in feats
+        ]
         feats = torch.cat(feats, dim=1).relu()
 
         # upsample
-        feats = interpolate(feats, scale_factor=2, mode="bilinear")
+        feats = interpolate(feats, scale_factor=2, mode="bilinear", align_corners=True)
         feats = self.conv_mid(feats).relu()
-        feats = interpolate(feats, scale_factor=4, mode="bilinear")
+        feats = interpolate(feats, scale_factor=4, mode="bilinear", align_corners=True)
         return self.conv_out(feats)

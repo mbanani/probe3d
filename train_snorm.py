@@ -93,7 +93,9 @@ def train(
             else:
                 feats = model(images)
             pred = probe(feats)
-            pred = F.interpolate(pred, size=target.shape[-2:], mode="bicubic")
+            pred = F.interpolate(
+                pred, size=target.shape[-2:], mode="bicubic", align_corners=True
+            )
 
             uncertainty = pred.shape[1] > 3
             loss = angular_loss(pred, target, mask, uncertainty_aware=uncertainty)
@@ -130,7 +132,9 @@ def validate(model, probe, loader, verbose=True, aggregate=True):
 
             feats = model(images)
             pred = probe(feats)
-            pred = F.interpolate(pred, size=target.shape[-2:], mode="bicubic")
+            pred = F.interpolate(
+                pred, size=target.shape[-2:], mode="bicubic", align_corners=True
+            )
 
             uncertainty = pred.shape[1] > 3
             loss = angular_loss(pred, target, mask, uncertainty_aware=uncertainty)
