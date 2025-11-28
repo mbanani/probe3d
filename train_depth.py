@@ -34,8 +34,6 @@ from hydra.utils import instantiate
 from loguru import logger
 from omegaconf import DictConfig, OmegaConf
 from torch.distributed import destroy_process_group, init_process_group
-
-
 from torch.nn.functional import interpolate
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.optim.lr_scheduler import LambdaLR
@@ -94,7 +92,9 @@ def train(
             else:
                 feats = model(images)
             pred = probe(feats)
-            pred = interpolate(pred, size=target.shape[-2:], mode="bilinear")
+            pred = interpolate(
+                pred, size=target.shape[-2:], mode="bilinear", align_corners=True
+            )
 
             if scale_invariant:
                 pred = match_scale_and_shift(pred, target)
@@ -141,7 +141,9 @@ def validate(
 
             feat = model(images)
             pred = probe(feat).detach()
-            pred = interpolate(pred, size=target.shape[-2:], mode="bilinear")
+            pred = interpolate(
+                pred, size=target.shape[-2:], mode="bilinear", align_corners=True
+            )
 
             loss = loss_fn(pred, target)
             total_loss += loss.item()
@@ -150,12 +152,7 @@ def validate(
                 pred, target, scale_invariant=scale_invariant
             )
             if metrics is None:
-                metrics = {
-                    key: [
-                        value,
-                    ]
-                    for key, value in batch_metrics.items()
-                }
+                metrics = {key: [value] for key, value in batch_metrics.items()}
             else:
                 for key, value in batch_metrics.items():
                     metrics[key].append(value)
